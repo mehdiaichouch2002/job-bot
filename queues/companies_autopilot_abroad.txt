@@ -1,0 +1,135 @@
+# Laravel partners (laravel.com/partners) and others — Company | Country | domain
+Jump24 | United Kingdom | jump24.co.uk
+Kirschbaum Development | United States | kirschbaumdevelopment.com
+Steadfast Collective | United Kingdom | steadfastcollective.com
+Vehikl | Canada | vehikl.com
+Ucodesoft | International | ucodesoft.com
+# Magento agencies from published agency lists (NL/PL/DE/FR), 2026-09-30
+Comaxx | Netherlands | comaxx.nl
+Frmwrk | Netherlands | frmwrk.nl
+Hypershop | Netherlands | hypershop.nl
+Vicus | Netherlands | vicus.nl
+Wezz | Netherlands | wezz.nl
+Centuria | Poland | centuria.pl
+Flagbit | Germany | flagbit.de
+410 Gone | France | 410-gone.fr
+# Google Maps 'Magento agency' Netherlands (2026-09-30)
+Webdesignforyou | Netherlands | webdesignforyou.nl
+Boldcommerce | Netherlands | boldcommerce.nl
+Jmango360 | Netherlands | jmango360.com
+Rickidwebdesign | Netherlands | rickidwebdesign.nl
+Jaagers | Netherlands | jaagers.com
+Webshopandgo | Netherlands | webshopandgo.nl
+Duxly | Netherlands | duxly.nl
+Mbu | Netherlands | mbu.digital
+Yadi | Netherlands | yadi.nl
+Kleinmedia | Netherlands | kleinmedia.nl
+Reachdigital | Netherlands | reachdigital.nl
+Manifera | Netherlands | manifera.com
+Sprite It | Netherlands | sprite-it.nl
+Wedigify | Netherlands | wedigify.nl
+Gomage | Netherlands | gomage.nl
+Algostore | Netherlands | algostore.com
+Telesto | Netherlands | telesto.nl
+Steez | Netherlands | steez.nl
+Codeiq | Netherlands | codeiq.nl
+Accentinteractive | Netherlands | accentinteractive.nl
+Magecloud | Netherlands | magecloud.agency
+Debeelddenkers | Netherlands | debeelddenkers.nl
+Wasoe | Netherlands | wasoe.nl
+Hoofdfabriek | Netherlands | hoofdfabriek.nl
+# Google Maps 'Magento agency' Germany (2026-09-30)
+Listandsell | Germany | listandsell.de
+Dinarys | Germany | dinarys.com
+Gramercyglobal | Germany | gramercyglobal.com
+Einhausdigital | Germany | einhausdigital.de
+3M5 | Germany | 3m5.de
+Knorke | Germany | knorke.de
+Kombinat Berlin | Germany | kombinat-berlin.de
+Ingoldsolutions | Germany | ingoldsolutions.com
+Spryker | Germany | spryker.com
+Brandbar | Germany | brandbar.de
+Tzn Digital | Germany | tzn-digital.com
+Grand Digital | Germany | grand-digital.de
+Interbranche | Germany | interbranche.de
+Implementek | Germany | implementek.de
+Revision6 | Germany | revision6.com
+Stearis | Germany | stearis.co
+Push2Hit | Germany | push2hit.de
+Webpartner | Germany | webpartner.de
+Adence | Germany | adence.de
+Tudock | Germany | tudock.de
+Webmeridian | Germany | webmeridian.de
+Media Harbour | Germany | media-harbour.com
+Espea | Germany | espea.de
+Morayma | Germany | morayma.digital
+Ecommercebrains | Germany | ecommercebrains.de
+E Nitio | Germany | e-nitio.com
+Enno | Germany | enno.dev
+Intersales | Germany | intersales.de
+Network Genius | Germany | network-genius.com
+Brandung | Germany | brandung.de
+Neoshops | Germany | neoshops.de
+Raketenstark | Germany | raketenstark.com
+Felix Bauer | Germany | felix-bauer.de
+# Google Maps 'Magento agency' United Kingdom (2026-09-30)
+2Simplify | United Kingdom | 2simplify.co.uk
+M2Commerce | United Kingdom | m2commerce.co
+Polebrand | United Kingdom | polebrand.com
+Rvsmedia | United Kingdom | rvsmedia.co.uk
+Randwmedia | United Kingdom | randwmedia.com
+Lilo | United Kingdom | lilo.co.uk
+Tomandco | United Kingdom | tomandco.co.uk
+Courageous | United Kingdom | courageous.co.uk
+Smartebusiness | United Kingdom | smartebusiness.co.uk
+Zynqa | United Kingdom | zynqa.com
+Visionsharp | United Kingdom | visionsharp.co.uk
+Venditan | United Kingdom | venditan.com
+Megantic | United Kingdom | megantic.uk
+Ebusinessguru | United Kingdom | ebusinessguru.co.uk
+Rainycityagency | United Kingdom | rainycityagency.com
+Lancashiredigital | United Kingdom | lancashiredigital.agency
+Stepholt | United Kingdom | stepholt.com
+Magic42 | United Kingdom | magic42.co.uk
+Takeoffdigital | United Kingdom | takeoffdigital.co.uk
+Gene | United Kingdom | gene.co.uk
+Adlab | United Kingdom | adlab.co.uk
+Outeredge | United Kingdom | outeredge.agency
+# Google Maps 'Magento agency' Poland (2026-09-30)
+Redingo | Poland | redingo.pro
+Netexo | Poland | netexo.pl
+Growcode | Poland | growcode.com
+Magentosklep | Poland | magentosklep.pl
+Thetransformagency | Poland | thetransformagency.com
+Axceleris | Poland | axceleris.com
+Double Digital | Poland | double-digital.pl
+Creativestyle | Poland | creativestyle.pl
+Genius Dev | Poland | genius-dev.pl
+# Google Maps 'Magento agency' UAE (2026-09-30)
+Commerce9 | UAE | commerce9.io
+Codilar | UAE | codilar.ae
+Tentwenty | UAE | tentwenty.com
+Gligx | UAE | gligx.com
+Zenerom | UAE | zenerom.ae
+Webarro | UAE | webarro.com
+Kwiko | UAE | kwiko.io
+Pgsuae | UAE | pgsuae.com
+Aspirationworx | UAE | aspirationworx.com
+# Google Maps 'Magento agency' Belgium (2026-09-30)
+Rebelcompany | Belgium | rebelcompany.be
+# Google Maps 'Magento agency' Spain (2026-09-30)
+Citiface | Spain | citiface.com
+Crispstudio | Spain | crispstudio.es
+Interdigital | Spain | interdigital.es
+Gmedia | Spain | gmedia.es
+Ecomm360 | Spain | ecomm360.es
+Emovere | Spain | emovere.agency
+The Art Of Ecommerce | Spain | the-art-of-ecommerce.com
+Tbb | Spain | tbb.agency
+Kdosd | Spain | kdosd.com
+Bekome | Spain | bekome.digital
+Cuoma | Spain | cuoma.com
+# Google Maps 'Magento agency' Portugal (2026-09-30)
+Miztec | Portugal | miztec.pt
+Lisbonproject | Portugal | lisbonproject.com
+Mindshaker | Portugal | mindshaker.com

@@ -1,0 +1,33 @@
+# ── Secrets — NEVER commit ──
+.env
+*.env
+!.env.example
+
+# ── Python ──
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ── Runtime data & generated output ──
+# SQLite DB (created automatically at runtime)
+data/
+# rotating log files
+logs/
+# generated application packets (cover letters, CV copies)
+applications/
+
+# ── Editor / OS ──
+.idea/
+.vscode/
+.DS_Store
+*.swp
+
+# Local AI assistant guidance — not for the public repo
+CLAUDE.md
+
+# ── Never publish personal data (public repo) ──
+*.pdf
+state.enc
+.state_ok

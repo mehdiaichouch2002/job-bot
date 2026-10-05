@@ -1,0 +1,94 @@
+name: job-bot
+
+# Runs the job bot and the spontaneous-application autopilot in the cloud, for free:
+# GitHub Actions minutes are unlimited for PUBLIC repositories (the private repo's
+# billing got locked on 2026-09-23 after the free minutes ran out).
+#
+# The code is public; the data is not. Everything personal (database, autopilot
+# progress, CV PDFs, logs) lives in ONE encrypted file, state.enc, on the `state`
+# branch. Only the STATE_KEY secret can open it. Logs of public repos are public,
+# so the bot's output goes into the encrypted state, never to the Actions log.
+on:
+  schedule:
+    - cron: "17 */3 * * *"  # every 3 hours (UTC)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write            # push the encrypted state to the `state` branch
+
+concurrency:
+  group: job-bot             # never two runs at once (they would mail the same company)
+  cancel-in-progress: false
+
+env:
+  TZ: Africa/Casablanca      # daily cap and sending hours follow Mehdi's day
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore encrypted state
+        env:
+          STATE_KEY: ${{ secrets.STATE_KEY }}
+        run: |
+          test -n "$STATE_KEY" || { echo "STATE_KEY secret missing"; exit 1; }
+          git fetch origin state --depth=1
+          git show origin/state:state.enc > state.enc
+          # a wrong key fails here, and the run stops before anything can overwrite the state
+          openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 -pass env:STATE_KEY -in state.enc | tar xz
+          rm state.enc
+          test -f data/jobs.db
+          cp queues/*.txt data/
+          touch .state_ok
+          echo "state restored"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -q -r requirements.txt
+
+      - name: Job bot (inbox, job boards, digest)
+        env:
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CONTACT_PHONE: ${{ secrets.CONTACT_PHONE }}
+        run: |
+          mkdir -p logs
+          timeout 15m python run.py --once >> logs/cloud.log 2>&1 && echo "job bot: ok" || echo "job bot: failed (details in the encrypted log)"
+
+      - name: Autopilot (spontaneous applications)
+        env:
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CONTACT_PHONE: ${{ secrets.CONTACT_PHONE }}
+          AUTOPILOT_HOURS: "7-21"
+          AUTOPILOT_DAILY_CAP: "90"
+          AUTOPILOT_BUDGET_SEC: "540"
+        run: |
+          timeout 12m python scripts/autopilot.py --batch 12 >> logs/cloud.log 2>&1 && echo "autopilot: ok" || echo "autopilot: failed (details in the encrypted log)"
+
+      - name: Save encrypted state
+        if: always()
+        env:
+          STATE_KEY: ${{ secrets.STATE_KEY }}
+        run: |
+          test -f .state_ok || { echo "state was not restored: not saving"; exit 0; }
+          tail -n 5000 logs/cloud.log > logs/cloud.tmp 2>/dev/null && mv logs/cloud.tmp logs/cloud.log || true
+          tar czf - data/jobs.db data/autopilot_state.txt data/autopilot_log.csv logs/cloud.log *.pdf 2>/dev/null \
+            | openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -salt -pass env:STATE_KEY -out /tmp/state.enc
+          git config user.name  "job-bot"
+          git config user.email "job-bot@users.noreply.github.com"
+          git checkout -q --orphan state-tmp
+          git rm -rq --cached .
+          cp /tmp/state.enc state.enc
+          git add -f state.enc
+          git commit -qm "state $(date -u +%FT%TZ)"
+          git push -fq origin state-tmp:state
+          echo "state saved"
