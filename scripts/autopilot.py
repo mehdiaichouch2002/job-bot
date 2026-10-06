@@ -186,28 +186,34 @@ def batch(max_sends: int):
     print(f"batch done: {sent} sent in {int(time.time() - start)} s", flush=True)
 
 
+def _job_bot():
+    """The job bot's own pipeline (inbox feedback, job boards, follow-ups, digest)."""
+    try:
+        from job_bot.main import run_pipeline
+        run_pipeline(dry_run=False)
+        print("job bot run done", flush=True)
+    except Exception as e:              # the bot must never stop the autopilot
+        print("job bot error:", e, flush=True)
+
+
 def main():
     last_inbox = 0.0
     while True:
+        # every 3 h, even when the queues are empty: until 2026-10-06 the pipeline only ran
+        # before a send, so with empty queues the inbox and job boards were never checked
+        if not DRY and time.time() - last_inbox > 3 * 3600:
+            _job_bot()
+            last_inbox = time.time()
         nxt = pending()
         if not nxt:
             if DRY:
                 break
-            time.sleep(900)            # queues empty: wait for new lines
+            time.sleep(900)             # queues empty: wait for new lines
             continue
         if DRY:                         # a dry run checks one company and stops
             _step(nxt)
             break
         wait_for_window()
-        if time.time() - last_inbox > 3 * 3600:
-            # the job bot's own pipeline (inbox feedback, job boards, follow-ups, digest), every 3 h
-            try:
-                from job_bot.main import run_pipeline
-                run_pipeline(dry_run=False)
-                print("job bot run done", flush=True)
-            except Exception as e:  # the bot must never stop the autopilot
-                print("job bot error:", e, flush=True)
-            last_inbox = time.time()
         if _step(nxt) == "SENT":
             time.sleep(random.randint(45, 90))
     print("queues empty", flush=True)
