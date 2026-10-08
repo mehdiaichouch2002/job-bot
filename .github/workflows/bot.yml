@@ -9,8 +9,10 @@ name: job-bot
 # branch. Only the STATE_KEY secret can open it. Logs of public repos are public,
 # so the bot's output goes into the encrypted state, never to the Actions log.
 on:
-  schedule:
-    - cron: "17 */3 * * *"  # every 3 hours (UTC)
+  # Schedule paused: the GitHub account is billing-locked, so every run failed.
+  # To turn it back on, restore these two lines:
+  # schedule:
+  #   - cron: "17 */3 * * *"  # every 3 hours (UTC)
   workflow_dispatch: {}
 
 permissions:
